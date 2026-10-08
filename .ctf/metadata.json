@@ -1,0 +1,15 @@
+{
+  "title": "Apache Struts2 S2-053 Freemarker OGNL Injection",
+  "description": "A Struts2 2.5.10 application, vulnerable to S2-053 (CVE-2017-12611): a Freemarker template uses an unsafe expression on a user-controlled value (redirectUri), so a submitted %{...} is evaluated as OGNL and runs commands.",
+  "question": "Exploit S2-053 through the form's field to run commands on the server and get a shell.",
+  "category": "WEB",
+  "difficulty": 2,
+  "evidence_kind": "SECRET",
+  "capabilities": [
+    "ognl-injection",
+    "freemarker",
+    "remote-code-execution",
+    "java",
+    "struts2"
+  ]
+}
