@@ -1,0 +1,68 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Make the Freemarker template evaluate an OGNL expression, run a command and read /ctf/flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-vulhub-struts2-s2-053}",
+      "hints": [
+        "The page renders what you submit through a Freemarker template. Read the S2-053 advisory on unsafe expressions in templates.",
+        "The flag is at /ctf/flag."
+      ],
+      "steps": [
+        {
+          "key": "framework",
+          "title": "Identify the framework",
+          "prompt": "Which Java web framework serves hello.action? (name only)",
+          "check": {
+            "answer": [
+              "struts",
+              "struts2",
+              "struts 2",
+              "apache struts",
+              "apache struts 2",
+              "apache struts2"
+            ]
+          }
+        },
+        {
+          "key": "advisory",
+          "title": "Name the advisory",
+          "prompt": "Which Struts security bulletin covers this bug?",
+          "check": {
+            "answer": [
+              "s2-053",
+              "s2053"
+            ]
+          }
+        },
+        {
+          "key": "engine",
+          "title": "Find the component",
+          "prompt": "Which template engine renders the submitted value? (name)",
+          "check": {
+            "answer": [
+              "freemarker"
+            ]
+          }
+        },
+        {
+          "key": "language",
+          "title": "Name the language",
+          "prompt": "Which expression language ends up evaluating it? (acronym)",
+          "check": {
+            "answer": [
+              "ognl",
+              "object-graph navigation language",
+              "object graph navigation language"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
